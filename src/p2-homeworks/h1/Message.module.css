@@ -1,0 +1,49 @@
+.message{ display: grid;
+    grid-template-areas:
+    " a  m ";
+    grid-template-columns: 70px 300px;
+    background-color: #233322;
+    width: 370px;
+    border-radius:  50px;
+}
+.avatarArea{
+    grid-area: a;
+    background-color: #adf403;
+    border-radius: 10px 0 20% 10px;
+    text-align: right;
+    display: grid;
+    grid-template-areas:
+    " d  f "
+    "c   z ";
+    grid-template-columns: 1fr 50px;
+    grid-template-rows: 1fr 50px;
+
+}
+.avatar {
+    grid-area: z;
+    height: 50px;
+    weight: 50px;
+    border-radius: 50%;
+}
+
+
+.containerMessage{
+    grid-area: m;
+    background-color: #233322;
+    padding: 10px;
+    border-radius:  10px;
+
+}
+.name {
+    font-size: 14px;
+    color: #697da4
+}
+.messages{
+    font-size: 14px;
+    color: white;
+}
+.time{
+    font-size: 14px;
+    color: #387433;
+    text-align: right;
+}
