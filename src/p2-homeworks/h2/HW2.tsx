@@ -51,7 +51,6 @@ function HW2() {
     let affrairsByFilter = filterAffairs(affairs, filter)
     return (
         <div>
-            debugger
             <hr/>
             homeworks 2
 
