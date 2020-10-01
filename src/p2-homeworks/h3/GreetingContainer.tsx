@@ -14,21 +14,20 @@ type GreetingContainerPropsType = {
 // уровень локальной логики
 const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUserCallback}) => {
     const [name, setName] = useState<string>("")
-    const [error, setError] = useState<any>("error")
-    const setNameCallback = (e:  React.ChangeEvent<HTMLInputElement>) => {
+    const [error, setError] = useState<any>("")
+    const setNameCallback = (e: React.ChangeEvent<HTMLInputElement>) => {
         setName(e.currentTarget.value);
     };
-    const [inputClass, setInputClass] = useState<string>("inputClass")
+
 
     const addUser = () => {
-        if (name.length>1) {addUserCallback(name)
-        alert(`Hello ${name} !`); // need to fix
-        setName("")
-            setInputClass("inputClass")} else {
-            setInputClass("inputClassError")
+        if (name.length > 1) {
+            addUserCallback(name)
+            alert(`Hello ${name} !`); // need to fix
+            setName("")
+            setError("")
+        } else {
             setError("the name cannot be shorter than two letters, please enter the correct name")
-
-
         }
     };
 
@@ -41,7 +40,7 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUser
             addUser={addUser}
             error={error}
             totalUsers={totalUsers}
-            errorClass={inputClass}
+
 
         />
     );
