@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import GreetingContainer from "./GreetingContainer";
-import { v1 } from "uuid";
+import {v1} from "uuid";
 
 // types
 export type UserType = {
@@ -16,16 +16,13 @@ function HW3() {
         const newUser = {_id: v1(), name: name}
         const newUsers = [newUser, ...users]
         setUsers(newUsers);/*  users.push(name)*/
-debugger
-
     }
-    console.log(users)
+
     return (
         <div>
             <hr/>
             homeworks 3
 
-            {/*should work (должно работать)*/}
             <GreetingContainer users={users} addUserCallback={addUserCallback}/>
 
             <hr/>

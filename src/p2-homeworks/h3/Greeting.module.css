@@ -1,7 +1,18 @@
-.someClass {
+.inputArea{
+    width: 600px;
+    margin: 20px auto;
+
+}
+.error{
+    font-size: 12px;
+    color: red;
+}
+
+.inputClass {
+    border: 1px solid blue;
 
 }
 
-.error {
+.inputClassError {
     border: 1px solid red;
 }

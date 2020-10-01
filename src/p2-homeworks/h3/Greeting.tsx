@@ -1,29 +1,40 @@
-import React, {useState} from "react";
+import React, {useState, KeyboardEvent} from "react";
 import s from "./Greeting.module.css";
 
 type GreetingPropsType = {
     name: string // need to fix any
-    setNameCallback: any // need to fix any
-    addUser: ()=>void// need to fix any
+    setNameCallback: (e:React.ChangeEvent<HTMLInputElement>)=>void // need to fix any
+    addUser: () => void// need to fix any
     error: string // need to fix any
     totalUsers: number // need to fix any
-
+    errorClass:string
 }
 
 // презентационная компонента (для верстальщика)
 const Greeting: React.FC<GreetingPropsType> = (
-    {name, setNameCallback, addUser, error, totalUsers} // деструктуризация пропсов
+    {name, setNameCallback, addUser, error, totalUsers,errorClass} // деструктуризация пропсов
 ) => {
-    const inputClass = s.error; // need to fix with (?:)
-    const inputClass2 = s.someClass;
+     // need to fix with (?:)
 
+    /*const inputClassName=()=>name.length > 0 ? inputClass2 : inputClass*/
+    const onPressHandler = ((e:KeyboardEvent<HTMLInputElement>) => {if (e.charCode===13) {addUser()}})
+   /*    debugger*//*console.log({errorClass})*/
     return (
-        <div>
-            <input value={name} onChange={setNameCallback} className={name.length>0? inputClass2 : inputClass   }/>
-            <button onClick={()=>{addUser()} } >add</button>
-            <span>{error}</span>
-            <span>   Number of Users = {totalUsers}</span>
+        <div className={s.inputArea}>
+            <div>  Return name: </div>
+            <input value={name} onChange={setNameCallback}
+                   onKeyPress={onPressHandler}
+                   className={`s.${errorClass}`}/>
+
+
+            <button onClick={() => {
+                addUser()
+            }}>add</button>
+
+            {errorClass==="inputClassError"&&<div className={s.error}>{error}</div>}
+            <div>   Number of Users = {totalUsers}</div>
         </div>
+
     );
 }
 
