@@ -34,7 +34,7 @@ const SuperInputText: React.FC<SuperInputTextPropsType> = (
     }
     const onKeyPressCallback = (e: KeyboardEvent<HTMLInputElement>) => {
         onKeyPress && onKeyPress(e);
-       setError && setError("")
+        setError && setError("")
         e.key === "Enter" // если нажата кнопка Enter
         && onEnter // и есть пропс onEnter
         && onEnter(); // то вызвать его
