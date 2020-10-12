@@ -11,6 +11,7 @@ type SuperInputTextPropsType = DefaultInputPropsType & { // и + ещё проп
     onEnter?: () => void
     error?: string
     spanClassName?: string
+    setError?:(error:string)=>void
 };
 
 const SuperInputText: React.FC<SuperInputTextPropsType> = (
@@ -20,6 +21,7 @@ const SuperInputText: React.FC<SuperInputTextPropsType> = (
         onKeyPress, onEnter,
         error,
         className, spanClassName,
+        setError,
 
         ...restProps// все остальные пропсы попадут в объект restProps
     }
@@ -32,7 +34,7 @@ const SuperInputText: React.FC<SuperInputTextPropsType> = (
     }
     const onKeyPressCallback = (e: KeyboardEvent<HTMLInputElement>) => {
         onKeyPress && onKeyPress(e);
-
+       setError && setError("")
         e.key === "Enter" // если нажата кнопка Enter
         && onEnter // и есть пропс onEnter
         && onEnter(); // то вызвать его
