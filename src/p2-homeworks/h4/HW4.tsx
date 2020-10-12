@@ -9,14 +9,13 @@ function HW4() {
     /* const error = text ? "" : "error";*/
     const [error, setError] =useState<string>("")
     const showAlert = () => {
-        if (!text) {
-            alert("введите текст...");
-            setError("error")
-        } else {
+        if (text) {
             alert(text); // если нет ошибки показать текст
             setText("")
             setError("")
-
+        } else {
+            alert("введите текст...");
+            setError("the field cannot be empty")
 
         }
     }
@@ -42,10 +41,10 @@ function HW4() {
 
                 {/*should work (должно работать)*/}
                 <SuperButton
-                    red // пропсу с булевым значением не обязательно указывать true
+                    error={error} // пропсу с булевым значением не обязательно указывать true
                     onClick={showAlert}
                 >
-                    delete {/*// название кнопки попадёт в children*/}
+                    PUSH {/*// название кнопки попадёт в children*/}
                 </SuperButton>
 
                 {/*should work (должно работать)*/}
