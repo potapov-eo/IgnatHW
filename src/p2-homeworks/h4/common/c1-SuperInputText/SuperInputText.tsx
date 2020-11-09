@@ -1,5 +1,7 @@
 import React, {ChangeEvent, DetailedHTMLProps, InputHTMLAttributes, KeyboardEvent} from "react";
 import s from "./SuperInputText.module.css";
+import {TextField} from "@material-ui/core";
+import {isBoolean} from "util";
 
 // тип пропсов обычного инпута
 type DefaultInputPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
@@ -21,7 +23,7 @@ const SuperInputText: React.FC<SuperInputTextPropsType> = (
         onKeyPress, onEnter,
         error,
         className, spanClassName,
-        setError,
+        setError, value,
 
         ...restProps// все остальные пропсы попадут в объект restProps
     }
@@ -42,10 +44,21 @@ const SuperInputText: React.FC<SuperInputTextPropsType> = (
 
     const finalSpanClassName = `${s.error} ${spanClassName ? spanClassName : ""}`;
     const finalInputClassName = error && `${s.errorInput} ${className}`; // need to fix with (?:) and s.superInput
-
     return (
         <>
-            <input
+            <TextField
+
+                value={value}
+                id="standard-basic" label="SuperInputField"
+                type={"text"}
+                onChange={onChangeCallback}
+                onKeyPress={onKeyPressCallback}
+                error={!!error}
+                helperText={error}
+
+            />
+
+             {/*   <input
                 type={"text"}
                 onChange={onChangeCallback}
                 onKeyPress={onKeyPressCallback}
@@ -53,7 +66,7 @@ const SuperInputText: React.FC<SuperInputTextPropsType> = (
 
                 {...restProps} // отдаём инпуту остальные пропсы если они есть (value например там внутри)
             />
-            {error && <span className={finalSpanClassName}>{error}</span>}
+            {error && <span className={finalSpanClassName}>{error}</span>}*/}
         </>
     );
 }

@@ -18,11 +18,7 @@ function Affairs(props: AffairsPropsType) {
             deleteAffairCallback={props.deleteAffairCallback}
         />
     ))
-    /* const deleteAffairCallback = (_id: number) => setAffairs(deleteAffair(affairs, _id));*/
-    /*const setAll = (filter:FilterType) => props.filterAffairsCallback(filter); // need to fix
-    const setHigh = (filter:FilterType) => props.filterAffairsCallback(filter);
-    const setMiddle = (filter:FilterType) => props.filterAffairsCallback(filter);
-    const setLow = (filter:FilterType) => props.filterAffairsCallback(filter);*/
+
     const setFilter = (filter: FilterType) => props.setFilter(filter);
 
 

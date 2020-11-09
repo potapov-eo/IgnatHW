@@ -31,9 +31,7 @@ export let filterAffairs = (affairs: Array<AffairType>, filter: FilterType): Arr
         return affairs.filter(affairs => affairs.priority === "low")
     }
     return affairs
-    /*if (filter === "all") {
-        return affairs
-    } else return affairs  ;*/ // need to fix
+
 }
 export let deleteAffair = (affairs: Array<AffairType>, _id: number): Array<AffairType> => {
     // need to fix any

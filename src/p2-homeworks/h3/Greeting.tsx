@@ -16,24 +16,19 @@ const Greeting: React.FC<GreetingPropsType> = (
 ) => {
     // need to fix with (?:)
 
-    /*const inputClassName=()=>name.length > 0 ? inputClass2 : inputClass*/
     const onPressHandler = ((e: KeyboardEvent<HTMLInputElement>) => {
         if (e.charCode === 13) {
             addUser()
         }
     })
-    /*    debugger*//*console.log({errorClass})*/
+    const classNameError = () => (error !== "") ? s.inputClassError : s.inputClass
     return (
         <div className={s.inputArea}>
             <div> Return name:</div>
             <input value={name} onChange={setNameCallback}
                    onKeyPress={onPressHandler}
-                   className={(error !== "") ? s.inputClassError : s.inputClass}/>
-
-
-            <button onClick={() => {
-                addUser()
-            }}>add
+                   className={classNameError()}/>
+            <button onClick={addUser}>add
             </button>
 
             {error !== "" && <div className={s.error}>{error}</div>}
