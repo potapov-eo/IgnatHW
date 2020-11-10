@@ -1,10 +1,3 @@
-.item a {
-
-    Color: blue;
-    text-decoration: none;
-
-}
-
-.item a.activeLink {
-    color: #cd2473;
+.center{
+    text-align: center;
 }

@@ -1,0 +1,8 @@
+.span{
+   box-shadow:  5px 5px 10px 3px black;
+    display: inline-block;
+    background-color: #8ae3dd;
+    padding: 5px;
+    border: 1px solid black;
+    margin: 5px 0px;
+}
