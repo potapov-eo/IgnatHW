@@ -10,19 +10,19 @@ export const homeWorkReducer = (state: StateType, action: ActionTypeType): State
         case "sort":
             switch (action.payload) {
                 case "up":
-                                  state.sort(function (a: PersonType, b: PersonType) {
+                    state.sort(function (a: PersonType, b: PersonType) {
                         if (a.name > b.name) {
                             return 1;
                         }
                         if (a.name < b.name) {
                             return -1;
                         }
-                        // a должно быть равным b
                         return 0;
-                    });return state
+                    });
+                    return state
                 case "down":
                     state.sort(function (a: PersonType, b: PersonType) {
-                                           if (a.name < b.name) {
+                        if (a.name < b.name) {
                             return 1;
                         }
                         if (a.name > b.name) {
@@ -34,13 +34,13 @@ export const homeWorkReducer = (state: StateType, action: ActionTypeType): State
                     return state
             }
         case "check": {
-          return   state.filter(p=>p.age>=action.payload)
+            return state.filter(p => p.age >= action.payload)
         }
         default:
             return state
     }
 };
-export type payloadType="up"|"down"
+export type payloadType = "up" | "down"
 export type sortACType = {
     type: "sort"
     payload: payloadType
@@ -48,18 +48,18 @@ export type sortACType = {
 }
 export type checkACType = {
     type: "check"
-    payload:number
+    payload: number
 }
-export type ActionTypeType=sortACType|checkACType
+export type ActionTypeType = sortACType | checkACType
 export const sortAC = (payload: payloadType): sortACType => {
     return {
         type: 'sort',
         payload: payload,
     }
 }
-export const checkAC = (payload:number): checkACType => {
+export const checkAC = (payload: number): checkACType => {
     return {
         type: 'check',
-        payload:payload
+        payload: payload
     }
 }
