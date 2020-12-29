@@ -1,12 +1,12 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 function Clock() {
     const [timerId, setTimerId] = useState<number>(0);
     const [date, setDate] = useState<Date>(new Date());
     const [show, setShow] = useState<boolean>(false);
-    const get2digitString = (num:number) => num < 10 ? "0" + num : num
+    const get2digitString = (num: number) => num < 10 ? "0" + num : num
     const stop = () => {
-        clearInterval(timerId,)
+        clearInterval(timerId)
     }
     const start = () => {
         const id: number = window.setInterval(() => {
@@ -22,23 +22,29 @@ function Clock() {
         setShow(false)
     };
 
-  /*  const stringTime = "Time"; // fix with date
-    const stringDate = "Date"; // fix with date
-*/
+    const stringTime = get2digitString(date?.getHours()) + ":"
+        + get2digitString(date?.getMinutes()) + ":"
+        + get2digitString(date?.getSeconds()); // fix with date
+    const stringDate = date?.toDateString(); // fix with date
+
+   // при выходе из компоненты зачищаем setInterval
+    useEffect(() => {
+            return stop()
+        }
+        , [])
+
     return (
         <div>
             <div
                 onMouseEnter={onMouseEnter}
                 onMouseLeave={onMouseLeave}
             >
-                TIME: {get2digitString(date?.getHours()) + ":"
-            + get2digitString(date?.getMinutes()) + ":"
-            + get2digitString(date?.getSeconds())}
+                TIME: {stringTime}
             </div>
 
             {show && (
                 <div>
-                    DATE: {date?.toDateString()}
+                    DATE: {stringDate}
                 </div>
             )}
 
