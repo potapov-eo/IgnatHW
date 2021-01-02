@@ -4,7 +4,7 @@ import SuperRadio from "../h7/common/c6-SuperRadio/SuperRadio";
 import {useDispatch, useSelector} from "react-redux";
 import {changeThemeAC, themeType} from "./bll/themeReducer";
 import {AppStoreType} from "../h10/bll/store";
-
+export interface HW12Props{}
 const themes = ['dark', 'red', 'some'];
 
 function HW12() {
