@@ -25,18 +25,19 @@ const SuperRange: React.FC<SuperRangePropsType> = (
         onChangeRange && onChangeRange(+e.currentTarget.value);
     }
 
-    const finalRangeClassName = `${s.range} ${className ? className : ""}`;
+   /* const finalRangeClassName = `${s.range} ${className ? className : ""}`;*/
 
     return (
-        <>
+        <div className={s.istyle}>
             <input
                 type={"range"}
+                aria-valuenow={50}
                 onChange={onChangeCallback}
-                className={finalRangeClassName}
+             /*   className={finalRangeClassName}*/
 
                 {...restProps} // отдаём инпуту остальные пропсы если они есть (value например там внутри)
             />
-        </>
+        </div>
     );
 }
 

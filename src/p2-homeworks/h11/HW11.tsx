@@ -3,9 +3,15 @@ import SuperRange from "./common/c7-SuperRange/SuperRange";
 import SuperDoubleRange from "./common/c8-SuperDoubleRange/SuperDoubleRange";
 
 function HW11() {
-    const [value1, setValue1] = useState(0);
-    const [value2, setValue2] = useState(100);
+    const [value1, setValue1] = useState(50);
+    const [value21, setValue21] = useState(30);
+    const [value22, setValue22] = useState(60);
 
+    const onChangeRange=(val:number)=>setValue1(val)
+    const onChangeDoubleRange=([val1,val2]:Array<number>)=>{
+        setValue21(val1)
+        setValue22(val2)
+    }
     return (
         <div>
             <hr/>
@@ -14,17 +20,22 @@ function HW11() {
             {/*should work (должно работать)*/}
             <div>
                 <span>{value1}</span>
-                <SuperRange
+                <div> <SuperRange
+                    onChangeRange={onChangeRange}
                     // сделать так чтоб value1 изменялось
-                />
+                />   </div>
             </div>
 
             <div>
-                <span>{value1}</span>
-                <SuperDoubleRange
+                <span> </span>
+                <span>{value21}</span>
+                <div> <SuperDoubleRange
+                    startValue1={value21}
+                    startValue2={value22}
+                    onChangeRange={onChangeDoubleRange}
                     // сделать так чтоб value1 и value2 изменялось
-                />
-                <span>{value2}</span>
+                /></div>
+                <span>{value22}</span>
             </div>
 
             <hr/>
