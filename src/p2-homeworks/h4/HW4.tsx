@@ -42,9 +42,11 @@ function HW4() {
                 <SuperButton
                     error={error} // пропсу с булевым значением не обязательно указывать true
                     onClick={showAlert}
-                >
-                    PUSH {/*// название кнопки попадёт в children*/}
-                </SuperButton>
+                    name={"push"}
+                    size={"medium"}
+                />
+
+
 
                 {/*should work (должно работать)*/}
                 <SuperCheckbox

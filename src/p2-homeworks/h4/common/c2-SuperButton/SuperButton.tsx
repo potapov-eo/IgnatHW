@@ -8,21 +8,22 @@ type DefaultButtonPropsType = DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonE
 type SuperButtonPropsType = DefaultButtonPropsType & {
     error?: string
     onClick: () => void
-
+     name?:string
+    size?: "small" | "medium" | "large" | undefined
 }
 
 const SuperButton: React.FC<SuperButtonPropsType> = (
     {
-        error, className, onClick, color,
+        error, className, onClick, color,name="push",size="medium",
         ...restProps// все остальные пропсы попадут в объект restProps, там же будет children
     }
 ) => {
     const finalClassName = error ? "secondary" : 'primary';//,
 
     return (
-        <Button variant="contained" color={finalClassName} onClick={onClick} style={{margin: "10px 0px"}}
+        <Button variant="contained" color={finalClassName} onClick={onClick} style={{margin: "10px 5px"}} size={size}
             //  {...restProps} // отдаём кнопке остальные пропсы если они есть (children там внутри)
-        >PUSH </Button>
+        >{name} </Button>
     );
 }
 

@@ -1,4 +1,13 @@
 import React, {useEffect, useState} from "react";
+import SuperButton from "../h4/common/c2-SuperButton/SuperButton";
+const style= {
+    backgroundColor: "#1affb2",
+    width: "200px",
+    marginLeft: "auto",
+    marginRight: "auto",
+    fontWeight: "bold",
+    border:"2px solid black"
+}
 
 function Clock() {
     const [timerId, setTimerId] = useState<number>(0);
@@ -36,7 +45,7 @@ function Clock() {
 
     return (
         <div>
-            <div
+            <div style={{  backgroundColor: "#1affb2", width: "200px",  marginLeft: "auto", marginRight: "auto",fontWeight: "bold", border:"2px solid black"}}
                 onMouseEnter={onMouseEnter}
                 onMouseLeave={onMouseLeave}
             >
@@ -48,9 +57,14 @@ function Clock() {
                     DATE: {stringDate}
                 </div>
             )}
-
-            <button onClick={start}>start</button>
-            <button onClick={stop}>stop</button>
+            <SuperButton
+                onClick={start}
+                name={"start"}    />
+            <SuperButton
+                onClick={stop}
+                name={"stop"}    />
+            {/*<button onClick={start}>start</button>
+            <button onClick={stop}>stop</button>*/}
 
         </div>
     );

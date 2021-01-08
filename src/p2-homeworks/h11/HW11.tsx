@@ -8,13 +8,13 @@ import s from "../h12/HW12.module.css";
 
 function HW11() {
     const [value1, setValue1] = useState(50);
-    const [value21, setValue21] = useState(30);
-    const [value22, setValue22] = useState(60);
+
+    const [value2, setValue2] = useState(60);
     const theme = useSelector<AppStoreType, themeType>(state => state.theme.themes)
     const onChangeRange = (val: number) => setValue1(val)
     const onChangeDoubleRange = ([val1, val2]: Array<number>) => {
-        setValue21(val1)
-        setValue22(val2)
+        setValue1(val1)
+        setValue2(val2)
     }
     return (
         <div className={s[theme]}>
@@ -27,20 +27,23 @@ function HW11() {
                 <span>{value1}</span>
                 <div><SuperRange
                     onChangeRange={onChangeRange}
+                    value1={value1}
                     // сделать так чтоб value1 изменялось
                 /></div>
             </div>
 
             <div>
                 <span> </span>
-                <span>{value21}</span>
+                <span>{value1}</span>
                 <div><SuperDoubleRange
-                    startValue1={value21}
-                    startValue2={value22}
+                    value1={value1}
+                    value2={value2}
+
+
                     onChangeRange={onChangeDoubleRange}
                     // сделать так чтоб value1 и value2 изменялось
                 /></div>
-                <span>{value22}</span>
+                <span>{value2}</span>
             </div>
 
             <hr/>

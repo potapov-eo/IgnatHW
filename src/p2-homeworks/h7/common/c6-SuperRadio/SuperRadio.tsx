@@ -22,7 +22,7 @@ const GreenRadio = withStyles({
 
 const SuperRadio: React.FC<SuperRadioPropsType> = (
     {
-        type, name,
+        type,
         options, value,
         onChange, onChangeOption,
         ...restProps
@@ -31,17 +31,16 @@ const SuperRadio: React.FC<SuperRadioPropsType> = (
 
     const onChangeCallback = (e: ChangeEvent<HTMLInputElement>) => {
 
-        onChangeOption&&onChangeOption(e.currentTarget.name)// onChange, onChangeOption
+        onChangeOption && onChangeOption(e.currentTarget.defaultValue)// onChange, onChangeOption defaultValue
 
     }
 
     const mappedOptions: any[] = options ? options.map((o, i) => (
-        <label key={name + "-" + i}>
+        <label key={"-" + i}>
             <Radio
                 checked={value === o}
                 onChange={onChangeCallback}
                 value={o}
-                name={o}
                 color='primary'
                 // name, checked, value, onChange
             />

@@ -22,7 +22,7 @@ export const loadingAC = (loading:boolean) => ({
     loading
 }) as const ;
 
- export const loadingTC = () => (dispatch: Dispatch<ActionsLoadingReducerType>) => {
+ export const loadingTC = () => (dispatch: Dispatch) => {
          dispatch(loadingAC(true))
          setTimeout(()=>{ dispatch(loadingAC(false))}, 2000);
 

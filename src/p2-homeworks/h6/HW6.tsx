@@ -25,8 +25,14 @@ function HW6() {
                     spanProps={{children: value ? undefined : "enter text..."}}
                 />
             </div>
-            <button onClick={save}>save</button>
-            <button onClick={restore}>restore</button>
+            <SuperButton
+                onClick={save}
+                name={"save"}  />
+            <SuperButton
+                onClick={restore}
+                name={"restore"}  />
+           {/* <button onClick={save}>save</button>
+            <button onClick={restore}>restore</button>*/}
 
             <hr/>
             {/*для личного творчества, могу проверить*/}

@@ -1,5 +1,6 @@
 import React from "react";
 import {AffairType} from './HW2';
+import SuperButton from "../h4/common/c2-SuperButton/SuperButton";
 /*import any = jasmine.any;*/
 
 type AffairPropsType = {
@@ -12,13 +13,19 @@ function Affair(props: AffairPropsType) {
     const deleteCallback = props.deleteAffairCallback;// need to fix
 
     return (
-        <div>
+        <div style={{  backgroundColor: "#1affb2", width: "500px",  marginLeft: "auto", marginRight: "auto",fontWeight: "bold", border:"1px solid black"}}>
             {props.affair._id} {props.affair.name} {props.affair.priority}
 
-            <button onClick={() => {
+
+            <SuperButton
+                size={"small"}
+                onClick={() => deleteCallback(props.affair._id)}
+                name={"X"}    />
+
+           {/* <button onClick={() => {
                 deleteCallback(props.affair._id)
             }}>X
-            </button>
+            </button>*/}
         </div>
     );
 }

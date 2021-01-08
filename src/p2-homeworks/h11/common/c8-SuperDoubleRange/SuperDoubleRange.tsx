@@ -15,16 +15,15 @@ function valuetext(value: number) {
 
 type SuperDoubleRangePropsType = {
     onChangeRange?: (value: number[]) => void
-    value1?: number[]
-    startValue1: number
-    startValue2: number
+    value1: number
+    value2: number
     // min, max, step, disable, ...
 }
 
 const SuperDoubleRange: React.FC<SuperDoubleRangePropsType> = (
     {
-        startValue1, startValue2,
-        onChangeRange, value1,
+
+        onChangeRange, value1,value2,
         // min, max, step, disable, ...
 
         ...restProps
@@ -34,10 +33,11 @@ const SuperDoubleRange: React.FC<SuperDoubleRangePropsType> = (
     // сделать самому, можно подключать библиотеки
 
 
-    const [value, setValue] = React.useState<number[]>([startValue1, startValue2]);
+    /*const [value, setValue] = React.useState<number[]>([startValue1, startValue2]);*/
+
 
     const handleChange = (event: any, newValue: number | number[]) => {
-        setValue(newValue as number[]);
+       /* setValue(newValue as number[]);*/
         onChangeRange && onChangeRange(newValue as number[])
     };
 
@@ -46,7 +46,7 @@ const SuperDoubleRange: React.FC<SuperDoubleRangePropsType> = (
 
             <div className={classes.root}>
                 <Slider
-                    value={value}
+                    value={[value1,value2]}
                     onChange={handleChange}
                     valueLabelDisplay="auto"
                     aria-labelledby="range-slider"

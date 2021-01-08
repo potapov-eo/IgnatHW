@@ -1,4 +1,7 @@
 import React, {SelectHTMLAttributes, DetailedHTMLProps, ChangeEvent} from "react";
+import Select from '@material-ui/core/Select';
+import {NativeSelect} from "@material-ui/core";
+
 
 type DefaultSelectPropsType = DetailedHTMLProps<SelectHTMLAttributes<HTMLSelectElement>, HTMLSelectElement>
 
@@ -21,10 +24,12 @@ const SuperSelect: React.FC<SuperSelectPropsType> = (
         onChangeOption(e.currentTarget.value)// onChange, onChangeOption
           }
 
+
     return (
-        <select value={value} onChange={onChangeCallback} {...restProps}>
+        // @ts-ignore
+        <NativeSelect  native value={value} onChange={onChangeCallback} {...restProps}>
             {mappedOptions}
-        </select>
+        </NativeSelect>
     );
 }
 
